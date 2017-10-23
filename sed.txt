@@ -1,0 +1,16 @@
+sed 's/\b\(s\)uhel\b/\1ahil/ig'
+s- subsitute pattern
+b-boundary pattern
+g -global
+i-case insensitive
+
+
+ sed 's/\(\b\w\+\b\) \1/\1/ig'
+
+ cat input.txt | sed '-d'
+ d delete
+ requires specific addresses of lines to delete else will delete whole file
+ ^,$ in sed
+ ^ and $ are match positions
+ echo abababab|sed 's/^ab/xx/g'
+ echo abababab|sed 's/ab$/xx/g'
