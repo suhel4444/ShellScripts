@@ -12,5 +12,5 @@ i-case insensitive
  requires specific addresses of lines to delete else will delete whole file
  ^,$ in sed
  ^ and $ are match positions
- echo abababab|sed 's/^ab/xx/g'
- echo abababab|sed 's/ab$/xx/g'
+ echo abababab|sed 's/^ab/xx/g' -----o/p xxababab
+ echo abababab|sed 's/ab$/xx/g'-----o/p abababxx
