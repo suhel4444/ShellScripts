@@ -14,3 +14,30 @@ i-case insensitive
  ^ and $ are match positions
  echo abababab|sed 's/^ab/xx/g' -----o/p xxababab
  echo abababab|sed 's/ab$/xx/g'-----o/p abababxx
+
+DELETE:
+in regex + is for one or more occurence
+but * is for zero or more
+and ? is for 0 or 1
+. means any single character
+cat input.txt| sed -e '/^$/d' ---this only removes blank lines
+cat input.txt | sed -e '/^ *$/d' -----this removes blank lines and whitespaces as well
+cat input.txt | sed -e '/^\t*$/d'----this removes blank lines and tabs
+For combination of tabs and space removal, we need alternation metacharacter<|>
+regex1|regex2
+cat input.txt | sed -e '/^\( \|\t\)*$/d' --this command will remove all of the above discussed.
+compact :cat input.txt | sed -e '/^[ \t]*$/d'
+
+-Multiple substitutes in one sed command:
+ cat input.txt| sed s/engineerinf/engineering/g;s/3.9/4.0/g'
+ to restrict to specific line:
+ cat input.txt| sed 2'{s/engineerinf/engineering/g;s/3.9/4.0/g}'
+
+-More sed(-f option)
+with f command sed will take instructions from a file
+sed -f <script.sh>
+
+- \(teh\){3,5} this means it will look for this pattern for atleast3 and max5
+(-i) option is inplace to reflect the change within file no need to cat or pipe your file to stdout
+command -sed -i 'program' FILE
+for backup of otiginal - sed -i.bak 'program' FILE
