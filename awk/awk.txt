@@ -1,0 +1,30 @@
+AWK----
+suited for filtering, rearranging and summarising data
+awk reads files i units caled records(one line).
+then records are automatically splitted into fields(words).
+Records are seperated by newlines and fields are seperated by whitespaces.
+Fields within records are assigned to $1,$2,$3....so on
+cat input.txt|awk '{print $1}'-this will print 1st column of the file
+
+to calc average of 2,3,4th field of each line basically a numbered file
+cat awk_input.txt | awk '{ var1=$2;var2=$3;var3=$4;average=(var1+var2+var3)/3;print average}'
+we can also call script with awk using -f
+awk -f <scriptname>
+
+AWK Script:
+BEGIN and END
+Both are executed once one at beginning and one at end
+#patterns and actions
+patterns in awk just as addresses in sed
+
+patterns can be any expression that can return a vealue, any regex or a range in form of expr1.expr2
+if we use regex , awk executes the block for any record that matches the regex just like sed.
+Print the lines in the file that start with c: cat awk_input.txt | awk '/^S/ {print}'
+#awk built in variable
+sets the value of these variables dynamically while processing the input
+NF-field number
+NR-rrecord no--cat awk_input.txt | awk 'NR % 2 == 0 {print}'
+RS-
+FS
+ORS
+OFS
