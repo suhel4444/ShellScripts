@@ -28,3 +28,21 @@ RS-
 FS
 ORS
 OFS
+
+
+
+cat awk_input.txt|awk '/^S/,/^N/ {print}'
+
+FS and RS are field and record seperators
+
+-mbox
+mbox file format is used for archiving your email messages, generally seperated by blank line.
+in awk script address should accompany action
+NR % 12 == 0 {
+		print tot/12;
+		tot=0
+}
+
+a complex awk programme for reference :
+
+https://www.youtube.com/watch?v=BR3qgAX3JM0
